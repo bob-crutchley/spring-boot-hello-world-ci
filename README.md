@@ -1,13 +1,15 @@
-# docker-jenkins
+# spring-boot-hello-world-ci
 Automated Jenkins server setup using Docker
 
-to run the jenkins server:
+To build run the jenkins server:
 ```bash
-docker run -d -p 8080:8080 bobcrutchley/jenkins:latest
+docker build -t jenkins .
 ```
 
-the docker image can be built locally using this command:
+To build run the jenkins server:
 ```bash
-docker build -t bobcrutchley/jenkins:latest .
+./docker run
 ```
+
+The jenkins server can be accessed on port 8080
 
