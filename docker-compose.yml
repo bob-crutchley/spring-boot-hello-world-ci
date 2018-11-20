@@ -1,0 +1,14 @@
+version: '3'
+services:
+  jenkins:
+    build: jenkins
+    container_name: jenkins
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./jenkins/jobs:/var/jenkins_home/jobs:Z"
+  nginx:
+    build: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+
