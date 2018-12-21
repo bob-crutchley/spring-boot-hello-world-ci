@@ -5,7 +5,7 @@ The Pipeline can be created using docker-compose:
 ```bash
 docker-compose up -d
 ```
-Jenkins will accessible from port 80
+Jenkins will accessible from port 80 with the credentials set to admin:admin (it's best if you update this of course)
 
 When a branch has been built with the included Jenkins job
 It can be accessed from `/spring-boot-hello-world/branch-name`
