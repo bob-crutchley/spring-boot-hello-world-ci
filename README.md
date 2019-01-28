@@ -45,8 +45,10 @@ Jenkins will accessible from port 80 with the credentials set to admin:admin (it
 
 ![Jenkins Home Page](docs/images/jenkins-home.png)
 
-When a branch has been built with the included Jenkins job.
+#### Feature Branches
+The default branch being built by Jenkins is the master branch, to build another, change it in the job configurations. When a branch has been built with the included Jenkins job.
 It can be accessed from `/spring-boot-hello-world/branch-name`
+
 For example to connect to the deployed master branch:
 `/spring-boot-hello-world/master`
 
