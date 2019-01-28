@@ -43,6 +43,8 @@ docker-compose up -d
 #### Accessing Jenkins
 Jenkins will accessible from port 80 with the credentials set to admin:admin (it's best if you update this of course)
 
+Because we are using Docker, we are able to deploy Jenkins preconfigured with the jobs already there.
+
 ![Jenkins Home Page](docs/images/jenkins-home.png)
 
 #### Feature Branches
@@ -51,4 +53,9 @@ It can be accessed from `/spring-boot-hello-world/branch-name`
 
 For example to connect to the deployed master branch:
 `/spring-boot-hello-world/master`
+
+#### Persisting Jobs
+The jobs folder for Jenkins has been passed throught the host machine as a bind mount. This essentially means that whatever jobs that you create, will be persisted to the host machine's disk in the project folder; `jenkins/jobs`. 
+
+If you have forked this repository, you will be able to commit these changes to GitHub, meaning that you wont ever lose anymore Jenkins jobs that you create.
 
