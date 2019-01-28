@@ -35,6 +35,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 #### The Pipeline can be created using docker-compose
+The configurations for Docker Compose can be found in the `docker-compose.yaml` file. The file in this case defines a Jenkins and an NGINX service. Both of these are created when you run the command below.
 ```bash
 docker-compose up -d
 ```
@@ -44,7 +45,7 @@ Jenkins will accessible from port 80 with the credentials set to admin:admin (it
 
 ![Jenkins Home Page](docs/images/jenkins-home.png)
 
-When a branch has been built with the included Jenkins job
+When a branch has been built with the included Jenkins job.
 It can be accessed from `/spring-boot-hello-world/branch-name`
 For example to connect to the deployed master branch:
 `/spring-boot-hello-world/master`

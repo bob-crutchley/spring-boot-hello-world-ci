@@ -18,7 +18,7 @@
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>**</name>
+        <name>master</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -40,8 +40,6 @@
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
-
-mvn clean package
 
 BRANCH_NAME=$(git branch | grep \* | cut -d &apos; &apos; -f2)
 echo $BRANCH_NAME
@@ -67,13 +65,15 @@ $docker network connect $project-ci_default $container
 echo &quot;location /${project}/${BRANCH_NAME}/ {&quot; &gt; ${container}.conf
 echo -e &quot;\t proxy_pass http://${container}:8080/;&quot; &gt;&gt; ${container}.conf
 echo &quot;}&quot; &gt;&gt; ${container}.conf
+cat ${container}.conf
 $docker cp ${container}.conf nginx:/etc/nginx/conf.d/${container}.conf
-$docker exec nginx nginx -s reload</command>
+$docker exec nginx nginx -s reload
+$docker system prune -f</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.36">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.37">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
